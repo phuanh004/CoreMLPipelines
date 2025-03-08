@@ -11,7 +11,7 @@ let package = Package(
         .executable(name: "coremlpipelines-cli", targets: ["CoreMLPipelinesCLI"])
     ],
     dependencies: [
-        .package(url: "https://github.com/huggingface/swift-transformers.git", branch: "main"),
+        .package(url: "https://github.com/matiasvillaverde/swift-transformers.git", branch: "main"), // ✅ Using alternative swift-transformers
         .package(url: "https://github.com/apple/swift-argument-parser.git", from: "1.5.0"),
         .package(url: "https://github.com/finnvoor/SwiftTUI.git", branch: "main")
     ],
@@ -19,7 +19,7 @@ let package = Package(
         .target(
             name: "CoreMLPipelines",
             dependencies: [
-                .product(name: "Transformers", package: "swift-transformers")
+                .product(name: "Transformers", package: "swift-transformers") // ✅ Uses correct Transformers dependency
             ]
         ),
         .executableTarget(
